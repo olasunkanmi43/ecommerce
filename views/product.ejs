@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"/>
+    <title>:: TCC MALL::</title>
+</head>
+<body>
+
+        <h3><a href="/">TCC Mall</a></h3>
+        <p>Shop for your best electronics</p>
+
+        <ul>
+            <li><a href="/products/Computers">Computers</a></li>
+            <li><a href="/products/Phones">Phones</a></li>
+            <li><a href="/products/Tablets">Tablets</a></li>
+            <li><a href="/products/Printers">Printers</a></li>
+            <li><a href="/products/Accessories">Accessories</a></li>
+        </ul>
+
+        <hr>
+
+            <% result.forEach((r) => { %>
+                <h3><%= r.productName %></h3>
+                <p><%= r.price %></p>
+                <a href="/details/<%= r._id %>">View Details</a>
+                <hr>
+            <% }) %>
+
+        <ul>
+            <li><a href="/login">Merchant Login</a></li>
+            <li><a href="/signup">Merchant Signup</a></li>
+        </ul>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"/>
+    <title>:: TCC Mall ::</title>
+</head>
+<body>
+
+        <h3>Welcome!!!</h3>
+        <p>Logged in Merchant: <strong><%= username %></strong></p>
+        <hr>
+
+        <a href="/dashboard">Dashboard</a>
+        <a href="/addPro">Upload Products</a>
+        <a href="/viewPro">View Products</a>
+        <a href="/logout">Click to Logout</a>
+       
+
+        <hr>
+
+        <h3>Product Upload Page</h3>
+        <p>Please fill in the product details below</p>
+
+        <% if(typeof(error) != 'undefined') { %>
+            <% error.forEach(function(err) { %>
+    
+                <h4 style="color: red"> <%= err %> </h4>
+                 
+            <% }) %>
+        <% } %>
+    
+        <% if(message != '') { %>
+            <h6 style="color: green"><%= message %></h6>
+        <% } %>
+    
+        <% if(error_msg != '') { %>
+            <h6 style="color: red"><%= message %></h6>
+        <% } %>
+    
+
+        <form action="/addPro" method="post">
+
+            <p>Product Name: <input type="text" name="productName"></p>
+            <p>Product Description: <br><textarea name="description" rows="7" cols="25"></textarea></p>
+            <p>Product Price: <input type="number" name="price"></p>
+
+            <% let products = ["Computers", "Phones", "Tablets", "Printers", "Accessories"] %>
+
+            <p>Product Category: <select name="category">
+                                <option value="">Select Product Category</option>
+                        <% products.forEach((prods) => { %>
+                   <option value="<%= prods %>"><%= prods %></option>
+                <% }) %>
+            </select></p>
+
+            <input type="submit" name="" value="Click to Add">
+        </form>
+    
+</body>
+</html>

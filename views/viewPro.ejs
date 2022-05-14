@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"/>
+    <title>:: TCC Mall ::</title>
+</head>
+<body>
+
+        <h3>Product Records</h3>
+        <table border="1">
+            <tr>
+                <th>Product Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Category</th>
+                <th>Added By</th>
+                <th>Date Added</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+
+            <tr>
+                <% result.forEach((recs) => { %>
+                    <td><%= recs.productName %></td>
+                    <td><%= recs.description %></td>
+                    <td><%= recs.price %></td>
+                    <td><%= recs.category %></td>
+                    <td><%= recs.username %></td>
+                    <td><%= recs.dateAdded %></td>
+                    <td><a href="/edit/<%= recs._id %>">Edit</a></td>
+                    <td><a href="/delete/<%= recs._id %>">Delete</a></td>
+                </tr>
+               <% }) %>
+            
+        </table>
+    
+</body>
+</html>
